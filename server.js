@@ -1,7 +1,5 @@
 const express = require('express');
-const cors = require('cors');
 const connect = require('./config/database');
-const { connect } = require('mongoose');
 require('dotenv').config();
 
 
@@ -13,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-//app.use('/incidents', require('./routes/incidents'));
+app.use('/incidents', require('./routes/incidents'));
 
 //test
 app.get('/', (req, res) => {
@@ -26,7 +24,7 @@ app.use((req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 
 app.listen(PORT, () => {
